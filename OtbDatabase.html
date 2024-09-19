@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table Bookings</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Table Bookings</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Restaurant Name</th>
+                <th>Party Size</th>
+                <th>Booking Date</th>
+                <th>Booking Time</th>
+            </tr>
+        </thead>
+        <tbody id="bookings-table-body"></tbody>
+    </table>
+    <script>
+        fetch('/bookings')
+            .then(response => response.json())
+            .then(data => {
+                const tableBody = document.getElementById('bookings-table-body');
+                data.forEach(booking => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${booking.id}</td>
+                        <td>${booking.restaurant_name}</td>
+                        <td>${booking.party_size}</td>
+                        <td>${booking.booking_date}</td>
+                        <td>${booking.booking_time}</td>
+                    `;
+                    tableBody.appendChild(row);
+                });
+            });
+    </script>
+</body>
+</html>

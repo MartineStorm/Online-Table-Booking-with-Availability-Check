@@ -61,3 +61,46 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+
+// server.js
+const express = require('express');
+const mysql = require('mysql2');
+
+const app = express();
+app.use(express.json());
+
+// Create a connection to the database
+const connection = mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    password: 'yourpassword',
+    database: 'table_booking'
+});
+
+// Connect to the database
+connection.connect((err) => {
+    if (err) throw err;
+    console.log('Connected to database!');
+});
+
+// Route to get all bookings
+app.get('/bookings', (req, res) => {
+    connection.query('SELECT * FROM bookings', (error, results) => {
+        if (error) throw error;
+        res.json(results);
+    });
+});
+
+// Route to add a booking
+app.post('/bookings', (req, res) => {
+    const { restaurant_name, party_size, booking_date, booking_time } = req.body;
+    connection.query('INSERT INTO bookings (restaurant_name, party_size, booking_date, booking_time) VALUES (?, ?, ?, ?)', [restaurant_name, party_size, booking_date, booking_time], (error) => {
+        if (error) throw error;
+        res.status(201).send('Booking added');
+    });
+});
+
+// Start the server
+app.listen(3000, () => {
+    console.log('Server running on port 3000');
+});
