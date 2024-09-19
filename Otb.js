@@ -100,6 +100,45 @@ app.post('/bookings', (req, res) => {
     });
 });
 
+document.addEventListener('DOMContentLoaded', () => {
+  const form = document.getElementById('bookingForm');
+  
+  form.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    
+    const restaurant = document.getElementById('restaurant').value;
+    const partySize = document.getElementById('partySize').value;
+    const date = document.getElementById('date').value;
+    const time = document.getElementById('time').value;
+    
+    try {
+      const response = await fetch('/submit-booking', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          restaurant,
+          partySize,
+          date,
+          time,
+        }),
+      });
+
+      if (response.ok) {
+        alert('Booking submitted successfully!');
+        form.reset(); // Reset form fields
+      } else {
+        alert('Failed to submit booking.');
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      alert('An error occurred while submitting the booking.');
+    }
+  });
+});
+
+
 // Start the server
 app.listen(3000, () => {
     console.log('Server running on port 3000');
