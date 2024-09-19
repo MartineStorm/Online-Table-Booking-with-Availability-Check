@@ -1,0 +1,21 @@
+#calendar-container {
+    width: 100%;
+    max-width: 600px;
+    margin: auto;
+}
+
+.available {
+    background-color: green;
+    color: white;
+}
+
+.unavailable {
+    background: green;
+    color: white;
+}
+
+header, footer {
+    text-align: center;
+    padding: 1em;
+    background-color: #f4f4f4;
+}
