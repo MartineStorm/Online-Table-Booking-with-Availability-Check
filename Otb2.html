@@ -5,23 +5,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width-device=width, initial-scale=1.0">
     <title>Online Table Booking</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.8.0/css/pikaday.min.css">
     <link rel="stylesheet" href="Obt.css">
 </head>
 
 <body>
     <header>
-        <h1>Table Booking</h1>
+        <div class="container">
+            <h1>Table Booking</h1>
+        </div>
     </header>
 
     <main>
-        <div id="Calendar-container"></div>
-        <div id="availability-info"></div>
+        <div class="container">
+            <div id="calendar-container">
+                <input type="text" id="datepicker" placeholder="Select a date">
+            </div>
+            <div id="availability-info"></div>
+        </div>
     </main>
 
     <footer>
-        <p>Contact us: OTB@contact.com</p>
+        <div class="container">
+            <p>Contact us: OTB@contact.com</p>
+        </div>
     </footer>
 
-    <script src="Otb.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.8.0/pikaday.min.js"></script>
+    <script src="script.js"></script>
+    
 </body>
 </html>
