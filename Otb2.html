@@ -1,27 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width-device=width, initial-scale=1.0">
-    <title>Online Table Booking</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.8.0/css/pikaday.min.css">
-    <link rel="stylesheet" href="Obt.css">
-</head>
-
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Chillis</title>
+        <!-- Pikaday CSS -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.8.0/css/pikaday.min.css" rel="stylesheet">
+        <!-- Your Custom CSS -->
+        <link rel="stylesheet" href="Otb.css">
+    </head>
+    
 <body>
+    <div id="red-stripe"></div>
+
     <header>
         <div class="container">
-            <h1>Table Booking</h1>
+            <img src="http://www.chilis.ca/skins/chilis/images/head-logo.png" alt="Chilis Logo" id="logo">
         </div>
     </header>
 
     <main>
         <div class="container">
-            <div id="calendar-container">
-                <input type="text" id="datepicker" placeholder="Select a date">
+            <h2>Reserve a table for your next visit!</h2>
+            <form id="booking-form">
+                <div class="form-group">
+                    <label for="restaurant-select">Select Restaurant:</label>
+                    <select id="restaurant-select" name="restaurant">
+                        <option value="restaurant1">El Maso Beach</option>
+                        <option value="restaurant2">Fresno</option>
+                        <option value="restaurant3">Justvik</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="OT_partySizeSelect">Party Size:</label>
+                    <select name="PartySize" id="OT_partySizeSelect">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                    </select>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="datepicker">Select a date:</label>
+                        <input type="text" id="datepicker" placeholder="Select a date">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="OT-timeSelect">Time:</label>
+                        <select name="Time" id="OT-timeSelect">
+                            <option value="12:00">12:00</option>
+                            <option value="13:00">13:00</option>
+                            <option value="14:00">14:00</option>
+                            <option value="15:00">15:00</option>
+                        </select>
+                    </div>
+                </div>
+
+                <button type="submit">Show Calendar</button>
+            </form>
+
+            <div id="calendar-container" style="display: none;">
+                <h2>Calendar:</h2>
+                <div id="calendar"></div>
+                <div id="availability-info"></div>
             </div>
-            <div id="availability-info"></div>
         </div>
     </main>
 
@@ -31,10 +76,13 @@
         </div>
     </footer>
 
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.8.0/pikaday.min.js"></script>
-    <script src="script.js"></script>
+        <!-- Your existing HTML code -->
     
-</body>
+        <!-- Pikaday JS -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.8.0/pikaday.min.js"></script>
+        <!-- Your Custom JS -->
+        <script src="Otb.js"></script>
+    </body>
+    
 </html>
