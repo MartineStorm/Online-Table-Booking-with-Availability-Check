@@ -16,19 +16,27 @@
     <header>
         <div class="container">
             <img src="http://www.chilis.ca/skins/chilis/images/head-logo.png" alt="Chilis Logo" id="logo">
-        </div>
+            <br><br>
+
+        <button class="menuButton">BANFF MENU</button>
+        <button class="menuButton">EDMONTON/CALGARY MENU</button>
+        <button class="locationsButton">LOCATIONS</button>
     </header>
 
     <main>
+        <div class="body-top-left">
+            <h2>MAKE A RESERVATION</h2>
+        </div>
         <div class="container">
             <h2>Reserve a table for your next visit!</h2>
             <form id="booking-form">
                 <div class="form-group">
                     <label for="restaurant-select">Select Restaurant:</label>
                     <select id="restaurant-select" name="restaurant">
-                        <option value="restaurant1">El Maso Beach</option>
-                        <option value="restaurant2">Fresno</option>
+                        <option value="restaurant1">Oslo</option>
+                        <option value="restaurant2">Kristiansand</option>
                         <option value="restaurant3">Justvik</option>
+                        <option value="restaurant4">Gjøvik</option>
                     </select>
                 </div>
 
@@ -39,6 +47,7 @@
                         <option value="2">2</option>
                         <option value="3">3</option>
                         <option value="4">4</option>
+                        <option value="5">5</option>
                     </select>
                 </div>
 
@@ -55,11 +64,15 @@
                             <option value="13:00">13:00</option>
                             <option value="14:00">14:00</option>
                             <option value="15:00">15:00</option>
+                            <option vlaue="16:00">16:00</option>
                         </select>
                     </div>
                 </div>
+                
+            <div class="button-container">
+                <button class="BookNow">Book Now</button>
+            </div>
 
-                <button type="submit">Book Now</button>
             </form>
 
             <div id="calendar-container" style="display: none;">
